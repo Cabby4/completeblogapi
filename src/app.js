@@ -21,5 +21,9 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/categories", categoryRoutes);
 
+app.get("/", (req,res) => {
+    res.send("API is running");
+})
+
 module.exports = app;
 
