@@ -21,6 +21,5 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/categories", categoryRoutes);
 
-
 module.exports = app;
 

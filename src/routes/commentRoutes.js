@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const protect = require("../middlewares/authMiddlewares");
+const { commentSchema } = require("../validation/commentValidation");
+const validate = require("../middlewares/validationMiddlewares");
 
 const {
   createComment,
@@ -12,6 +14,7 @@ const {
 router.post(
   "/:postId",
   protect,
+  validate(commentSchema),
   createComment
 );
 

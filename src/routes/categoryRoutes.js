@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const Category = require("../models/category");
+const validate = require("../middlewares/validationMiddlewares");
+const { categorySchema } = require("../validation/categoryValidation");
 
-router.post("/", async (req, res) => {
+router.post("/", validate(categorySchema), async (req, res) => {
   const category = await Category.create({
     name: req.body.name,
   });
